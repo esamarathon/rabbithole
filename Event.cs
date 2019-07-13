@@ -1,14 +1,26 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace rabbithole
 {
     public class Event
     {
-        public GUID id { get; set; }
+        [Column("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
-        public DateTime timestamp { get; set; }
+        [Column("timestamp")]
+        public DateTime Timestamp { get; set; }
 
-        public string event_name { get; set; }
+        [Column("exchange")]
+        public string Exchange { get; set; }
+
+        [Column("routing_key")]
+        public string RoutingKey { get; set; }
         
-        [Column(TypeName="jsonb")]
-        public string content { get; set; }
+        [Column("content", TypeName="jsonb")]
+        public string Content { get; set; }
     }
 }
