@@ -12,7 +12,7 @@ namespace rabbithole
         public Guid Id { get; set; }
 
         [Column("timestamp")]
-        public DateTime Timestamp { get; set; }
+        public DateTime Recieved { get; set; }
 
         [Column("exchange")]
         public string Exchange { get; set; }
