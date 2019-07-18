@@ -12,4 +12,14 @@ services:
     environment:
       - RABBITMQ_DEFAULT_VHOST=esa_dev
     ports:
-      - 5672:5672 
+      - 5672:5672
+  app:
+    image: "rabbithole"
+    build: .
+    depends_on:
+      - db
+      - rabbit
+    environment:
+      - RABBITHOLE_Logging__LogLevel__Default=Debug
+      - RABBITHOLE_RabbitMQ__HostName=rabbit
+      - RABBITHOLE_ConnectionStrings__Events=User ID=postgres;Password=password;Host=db;Port=5432;Database=rabbithole

@@ -14,7 +14,7 @@ namespace rabbithole {
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.default.json")
             .AddJsonFile($"appsettings.json", true)
-            .AddEnvironmentVariables();
+            .AddEnvironmentVariables("RABBITHOLE_");
 
             var config = builder.Build();
 
