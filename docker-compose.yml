@@ -14,7 +14,7 @@ services:
     ports:
       - 5672:5672
   app:
-    image: "rabbithole"
+    image: "esamarathon/rabbithole"
     build: .
     depends_on:
       - db

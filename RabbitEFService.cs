@@ -74,7 +74,7 @@ namespace rabbithole
             var queue = channel.QueueDeclare(Queue, durable: true, exclusive: false, autoDelete: false);
             foreach (var binding in rabbitConfig.Bindings)
             {
-                channel.ExchangeDeclare(binding.Exchange, ExchangeType.Topic, true ,false);
+                channel.ExchangeDeclare(binding.Exchange, ExchangeType.Topic, durable: true, autoDelete: true);
                 channel.QueueBind(queue: queue.QueueName,
                                 exchange: binding.Exchange,
                                 routingKey: binding.Topic);

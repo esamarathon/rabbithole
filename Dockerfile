@@ -7,6 +7,7 @@ RUN dotnet publish -c Release --no-restore -o out
 
 FROM mcr.microsoft.com/dotnet/core/runtime:2.2
 WORKDIR /app
+RUN apt-get install -y ca-certificates
 ARG USER=rabbithole
 ARG UID=1234
 RUN useradd -u ${UID} ${USER}

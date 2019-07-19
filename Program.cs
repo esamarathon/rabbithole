@@ -45,6 +45,7 @@ namespace rabbithole
                     .RunAsync();
             } catch (Exception ex) {
                 Console.WriteLine("Caught error starting server.");
+                Console.WriteLine(ex.Message);
             }
         }
     }
