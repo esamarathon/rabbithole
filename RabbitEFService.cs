@@ -52,8 +52,11 @@ namespace rabbithole
                         HostName = rabbitConfig.HostName,
                         Password = rabbitConfig.Password,
                         UserName = rabbitConfig.UserName,
-                        VirtualHost = rabbitConfig.VirtualHost
+                        VirtualHost = rabbitConfig.VirtualHost,
                     };
+                    
+                    factory.Ssl.Enabled = rabbitConfig.Ssl.Enabled;
+                    factory.Ssl.ServerName = rabbitConfig.Ssl.ServerName;
 
                     rabbitConn = factory.CreateConnection();
                     channel = rabbitConn.CreateModel();
